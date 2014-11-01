@@ -1,0 +1,424 @@
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s1="http://tempuri.org/AbstractTypes" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://tempuri.org/">
+    <wsdl:types>
+        <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+            <s:element name="MessageUpload">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="number" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="content" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="origShortCode" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="MessageUploadResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="MessageUploadResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="MessageUploadWithServiceId">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="number" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="content" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="origShortCode" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="serviceId" type="s:int"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="MessageUploadWithServiceIdResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="MessageUploadWithServiceIdResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="MessageListUpload">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="numberList" type="tns:ArrayOfString"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="contentList" type="tns:ArrayOfString"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="origShortCodeList" type="tns:ArrayOfString"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="ArrayOfString">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="MessageListUploadResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="MessageListUploadResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="MessageListUploadWithServiceId">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="numberList" type="tns:ArrayOfString"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="contentList" type="tns:ArrayOfString"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="origShortCodeList" type="tns:ArrayOfString"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="serviceIdList" type="tns:ArrayOfInt"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="ArrayOfInt">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="MessageListUploadWithServiceIdResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="MessageListUploadWithServiceIdResult" type="tns:ArrayOfString"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="string" nillable="true" type="s:string"/>
+            <s:element name="ArrayOfString" nillable="true" type="tns:ArrayOfString"/>
+        </s:schema>
+    </wsdl:types>
+    <wsdl:message name="MessageUploadSoapIn">
+        <wsdl:part name="parameters" element="tns:MessageUpload"/>
+    </wsdl:message>
+    <wsdl:message name="MessageUploadSoapOut">
+        <wsdl:part name="parameters" element="tns:MessageUploadResponse"/>
+    </wsdl:message>
+    <wsdl:message name="MessageUploadWithServiceIdSoapIn">
+        <wsdl:part name="parameters" element="tns:MessageUploadWithServiceId"/>
+    </wsdl:message>
+    <wsdl:message name="MessageUploadWithServiceIdSoapOut">
+        <wsdl:part name="parameters" element="tns:MessageUploadWithServiceIdResponse"/>
+    </wsdl:message>
+    <wsdl:message name="MessageListUploadSoapIn">
+        <wsdl:part name="parameters" element="tns:MessageListUpload"/>
+    </wsdl:message>
+    <wsdl:message name="MessageListUploadSoapOut">
+        <wsdl:part name="parameters" element="tns:MessageListUploadResponse"/>
+    </wsdl:message>
+    <wsdl:message name="MessageListUploadWithServiceIdSoapIn">
+        <wsdl:part name="parameters" element="tns:MessageListUploadWithServiceId"/>
+    </wsdl:message>
+    <wsdl:message name="MessageListUploadWithServiceIdSoapOut">
+        <wsdl:part name="parameters" element="tns:MessageListUploadWithServiceIdResponse"/>
+    </wsdl:message>
+    <wsdl:message name="MessageUploadHttpGetIn">
+        <wsdl:part name="username" type="s:string"/>
+        <wsdl:part name="password" type="s:string"/>
+        <wsdl:part name="number" type="s:string"/>
+        <wsdl:part name="content" type="s:string"/>
+        <wsdl:part name="origShortCode" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="MessageUploadHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="MessageUploadWithServiceIdHttpGetIn">
+        <wsdl:part name="username" type="s:string"/>
+        <wsdl:part name="password" type="s:string"/>
+        <wsdl:part name="number" type="s:string"/>
+        <wsdl:part name="content" type="s:string"/>
+        <wsdl:part name="origShortCode" type="s:string"/>
+        <wsdl:part name="serviceId" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="MessageUploadWithServiceIdHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="MessageListUploadHttpGetIn">
+        <wsdl:part name="username" type="s:string"/>
+        <wsdl:part name="password" type="s:string"/>
+        <wsdl:part name="numberList" type="s1:StringArray"/>
+        <wsdl:part name="contentList" type="s1:StringArray"/>
+        <wsdl:part name="origShortCodeList" type="s1:StringArray"/>
+    </wsdl:message>
+    <wsdl:message name="MessageListUploadHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="MessageListUploadWithServiceIdHttpGetIn">
+        <wsdl:part name="username" type="s:string"/>
+        <wsdl:part name="password" type="s:string"/>
+        <wsdl:part name="numberList" element="tns:ArrayOfString"/>
+        <wsdl:part name="contentList" element="tns:ArrayOfString"/>
+        <wsdl:part name="origShortCodeList" element="tns:ArrayOfString"/>
+        <wsdl:part name="serviceIdList" element="tns:ArrayOfString"/>
+    </wsdl:message>
+    <wsdl:message name="MessageListUploadWithServiceIdHttpGetOut">
+        <wsdl:part name="Body" element="tns:ArrayOfString"/>
+    </wsdl:message>
+    <wsdl:message name="MessageUploadHttpPostIn">
+        <wsdl:part name="username" type="s:string"/>
+        <wsdl:part name="password" type="s:string"/>
+        <wsdl:part name="number" type="s:string"/>
+        <wsdl:part name="content" type="s:string"/>
+        <wsdl:part name="origShortCode" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="MessageUploadHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="MessageUploadWithServiceIdHttpPostIn">
+        <wsdl:part name="username" type="s:string"/>
+        <wsdl:part name="password" type="s:string"/>
+        <wsdl:part name="number" type="s:string"/>
+        <wsdl:part name="content" type="s:string"/>
+        <wsdl:part name="origShortCode" type="s:string"/>
+        <wsdl:part name="serviceId" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="MessageUploadWithServiceIdHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="MessageListUploadHttpPostIn">
+        <wsdl:part name="username" type="s:string"/>
+        <wsdl:part name="password" type="s:string"/>
+        <wsdl:part name="numberList" element="tns:ArrayOfString"/>
+        <wsdl:part name="contentList" element="tns:ArrayOfString"/>
+        <wsdl:part name="origShortCodeList" element="tns:ArrayOfString"/>
+    </wsdl:message>
+    <wsdl:message name="MessageListUploadHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="MessageListUploadWithServiceIdHttpPostIn">
+        <wsdl:part name="username" type="s:string"/>
+        <wsdl:part name="password" type="s:string"/>
+        <wsdl:part name="numberList" element="tns:ArrayOfString"/>
+        <wsdl:part name="contentList" element="tns:ArrayOfString"/>
+        <wsdl:part name="origShortCodeList" element="tns:ArrayOfString"/>
+        <wsdl:part name="serviceIdList" element="tns:ArrayOfString"/>
+    </wsdl:message>
+    <wsdl:message name="MessageListUploadWithServiceIdHttpPostOut">
+        <wsdl:part name="Body" element="tns:ArrayOfString"/>
+    </wsdl:message>
+    <wsdl:portType name="SmsBufferSoap">
+        <wsdl:operation name="MessageUpload">
+            <wsdl:input message="tns:MessageUploadSoapIn"/>
+            <wsdl:output message="tns:MessageUploadSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="MessageUploadWithServiceId">
+            <wsdl:input message="tns:MessageUploadWithServiceIdSoapIn"/>
+            <wsdl:output message="tns:MessageUploadWithServiceIdSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="MessageListUpload">
+            <wsdl:input message="tns:MessageListUploadSoapIn"/>
+            <wsdl:output message="tns:MessageListUploadSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="MessageListUploadWithServiceId">
+            <wsdl:input message="tns:MessageListUploadWithServiceIdSoapIn"/>
+            <wsdl:output message="tns:MessageListUploadWithServiceIdSoapOut"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:portType name="SmsBufferHttpGet">
+        <wsdl:operation name="MessageUpload">
+            <wsdl:input message="tns:MessageUploadHttpGetIn"/>
+            <wsdl:output message="tns:MessageUploadHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="MessageUploadWithServiceId">
+            <wsdl:input message="tns:MessageUploadWithServiceIdHttpGetIn"/>
+            <wsdl:output message="tns:MessageUploadWithServiceIdHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="MessageListUpload">
+            <wsdl:input message="tns:MessageListUploadHttpGetIn"/>
+            <wsdl:output message="tns:MessageListUploadHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="MessageListUploadWithServiceId">
+            <wsdl:input message="tns:MessageListUploadWithServiceIdHttpGetIn"/>
+            <wsdl:output message="tns:MessageListUploadWithServiceIdHttpGetOut"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:portType name="SmsBufferHttpPost">
+        <wsdl:operation name="MessageUpload">
+            <wsdl:input message="tns:MessageUploadHttpPostIn"/>
+            <wsdl:output message="tns:MessageUploadHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="MessageUploadWithServiceId">
+            <wsdl:input message="tns:MessageUploadWithServiceIdHttpPostIn"/>
+            <wsdl:output message="tns:MessageUploadWithServiceIdHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="MessageListUpload">
+            <wsdl:input message="tns:MessageListUploadHttpPostIn"/>
+            <wsdl:output message="tns:MessageListUploadHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="MessageListUploadWithServiceId">
+            <wsdl:input message="tns:MessageListUploadWithServiceIdHttpPostIn"/>
+            <wsdl:output message="tns:MessageListUploadWithServiceIdHttpPostOut"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="SmsBufferSoap" type="tns:SmsBufferSoap">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="MessageUpload">
+            <soap:operation soapAction="http://tempuri.org/MessageUpload" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="MessageUploadWithServiceId">
+            <soap:operation soapAction="http://tempuri.org/MessageUploadWithServiceId" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="MessageListUpload">
+            <soap:operation soapAction="http://tempuri.org/MessageListUpload" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="MessageListUploadWithServiceId">
+            <soap:operation soapAction="http://tempuri.org/MessageListUploadWithServiceId" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="SmsBufferSoap12" type="tns:SmsBufferSoap">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="MessageUpload">
+            <soap12:operation soapAction="http://tempuri.org/MessageUpload" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="MessageUploadWithServiceId">
+            <soap12:operation soapAction="http://tempuri.org/MessageUploadWithServiceId" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="MessageListUpload">
+            <soap12:operation soapAction="http://tempuri.org/MessageListUpload" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="MessageListUploadWithServiceId">
+            <soap12:operation soapAction="http://tempuri.org/MessageListUploadWithServiceId" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="SmsBufferHttpGet" type="tns:SmsBufferHttpGet">
+        <http:binding verb="GET"/>
+        <wsdl:operation name="MessageUpload">
+            <http:operation location="/MessageUpload"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="MessageUploadWithServiceId">
+            <http:operation location="/MessageUploadWithServiceId"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="MessageListUpload">
+            <http:operation location="/MessageListUpload"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="MessageListUploadWithServiceId">
+            <http:operation location="/MessageListUploadWithServiceId"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="SmsBufferHttpPost" type="tns:SmsBufferHttpPost">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="MessageUpload">
+            <http:operation location="/MessageUpload"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="MessageUploadWithServiceId">
+            <http:operation location="/MessageUploadWithServiceId"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="MessageListUpload">
+            <http:operation location="/MessageListUpload"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="MessageListUploadWithServiceId">
+            <http:operation location="/MessageListUploadWithServiceId"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="SmsBuffer">
+        <wsdl:port name="SmsBufferSoap" binding="tns:SmsBufferSoap">
+            <soap:address location="http://services.hamrahvas.com/SMSBuffer.asmx"/>
+        </wsdl:port>
+        <wsdl:port name="SmsBufferSoap12" binding="tns:SmsBufferSoap12">
+            <soap12:address location="http://services.hamrahvas.com/SMSBuffer.asmx"/>
+        </wsdl:port>
+        <wsdl:port name="SmsBufferHttpGet" binding="tns:SmsBufferHttpGet">
+            <http:address location="http://services.hamrahvas.com/SMSBuffer.asmx"/>
+        </wsdl:port>
+        <wsdl:port name="SmsBufferHttpPost" binding="tns:SmsBufferHttpPost">
+            <http:address location="http://services.hamrahvas.com/SMSBuffer.asmx"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
