@@ -1,0 +1,324 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"biz",
+				"bizemail"
+			],
+			[
+				"text",
+				"text_field"
+			],
+			[
+				"ret",
+				"retires"
+			],
+			[
+				"phone",
+				"phone_verify"
+			],
+			[
+				"mobile",
+				"mobile_country_code"
+			],
+			[
+				"coun",
+				"mobile_country_code"
+			],
+			[
+				"mo",
+				"mobile_country_code"
+			],
+			[
+				"op",
+				"option"
+			],
+			[
+				"selec",
+				"select_list"
+			],
+			[
+				"send",
+				"sendkeys"
+			],
+			[
+				"retr",
+				"retries"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "cp-infra.sublime-project",
+			"settings":
+			{
+				"buffer_size": 73,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 227.0,
+		"selected_items":
+		[
+			[
+				"pac",
+				"Preferences: Browse Packages"
+			],
+			[
+				"packae",
+				"Preferences: Browse Packages"
+			]
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/jani/Projects/cp-infra"
+	],
+	"file_history":
+	[
+		"/Users/jani/Downloads/New Folder With Items/8839ae7b77c525b6a8ea14454db01407.torrent",
+		"/Users/jani/Downloads/New Folder With Items/71728bc319d77ec74d7814510c955dde2921f0d5.torrent",
+		"/Users/jani/Downloads/New Folder With Items/ebdadb66d00f66299420ddda5767feed.torrent",
+		"/Users/jani/Applications/jboss-eap-6.2/bin/standalone.conf",
+		"/Users/jani/Projects/untouched-grails/grails-app/views/post/_form.gsp",
+		"/Users/jani/Projects/untouched-grails/web-app/WEB-INF/tld/fmt.tld",
+		"/Users/jani/Projects/untouched-grails/target/work/plugins/asset-pipeline-1.8.7/plugin.xml",
+		"/Users/jani/Projects/untouched-grails/grails-app/domain/com/asanpardakht/mms/Post.groovy",
+		"/Users/jani/Downloads/grails-petclinic-master/grails-app/controllers/org/grails/samples/PetController.groovy",
+		"/Users/jani/Downloads/grails-petclinic-master/grails-app/domain/org/grails/samples/Pet.groovy",
+		"/Users/jani/Downloads/grails-petclinic-master/grails-app/services/org/grails/samples/PetclinicService.groovy",
+		"/Users/jani/Downloads/grails-petclinic-master/grails-app/controllers/org/grails/samples/ClinicController.groovy",
+		"/Users/jani/Applications/activator-1.0.7/activator.bat",
+		"/Users/jani/Desktop/untitled folder/Plane.svg",
+		"/Users/jani/bin/tor_proxy.sh",
+		"/Users/jani/Downloads/Breaking Bad S1,2,3,4,5/Season 2/Breaking Bad S2E1 - Seven Thirty-Seven copy.txt",
+		"/Users/jani/Downloads/kafka-0.8.0-src/sbt.bat",
+		"/Users/jani/Projects/NetVersaLLC/yahoo_signup_data.rb",
+		"/Users/jani/Projects/NetVersaLLC/yahoo_signup.rb",
+		"/Users/jani/Projects/NetVersaLLC/bing_data.rb"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"",
+			"'",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"monday",
+			"	  \"",
+			"pry",
+			"SecureRandom",
+			"number",
+			"    @",
+			"payment",
+			"name",
+			"retires",
+			"%",
+			"\"",
+			"http",
+			"\"",
+			"if",
+			"signup",
+			"fill_category",
+			"inject_jquery",
+			"end",
+			"phone_verify",
+			"sendkeys",
+			"try_func",
+			"fill_category",
+			"sleep",
+			"binding",
+			"try_func",
+			"signUpBtn",
+			"try_func",
+			"fill_category",
+			"elem",
+			"try_func",
+			"fill_category",
+			"signup",
+			"scan",
+			"signup",
+			"\n  ",
+			"signup",
+			"raise",
+			"browser",
+			"acseccat1",
+			"data"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"tuesday",
+			"retries",
+			"'",
+			"brow",
+			"@data"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "cp-infra.sublime-project",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 73,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "cp-infra.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"form",
+				"grails-app/views/post/_form.gsp"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 212.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

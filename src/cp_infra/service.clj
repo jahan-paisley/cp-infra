@@ -3,7 +3,11 @@
             [io.pedestal.http.route :as route]
             [io.pedestal.http.body-params :as body-params]
             [io.pedestal.http.route.definition :refer [defroutes]]
-            [ring.util.response :as ring-resp]))
+            [ring.util.response :as ring-resp]
+            [ns-tracker.core :refer [ns-tracker]]
+            [io.pedestal.interceptor :refer [defon-request defon-response]]
+            [cp-infra.message :as message]
+            [stencil.core :as stencil]))
 
 (defn about-page
   [request]
@@ -11,14 +15,20 @@
                               (clojure-version)
                               (route/url-for ::about-page))))
 
-(defn home-page
-  [request]
-  (ring-resp/response "Hello World!"))
+(def modified-namespaces (ns-tracker ["src" "resources"]))
+
+(defon-response affix-custom-server [resp]
+                (update-in resp [:headers "Server"] (constantly "Computron 9000")))
 
 (defroutes routes
-  [[["/" {:get home-page}
+  [[["/"
+     ["/messages" ^:interceptors [(body-params/body-params) bootstrap/html-body]
+      {:get  [:messages message/index]
+       :post [:messages#create message/create]
+       :delete [:messages#delete-all message/delete-all]
+       }]
      ;; Set default interceptors for /about and any other paths under /
-     ^:interceptors [(body-params/body-params) bootstrap/html-body]
+     ;;^:interceptors [(body-params/body-params) bootstrap/html-body]
      ["/about" {:get about-page}]]]])
 
 ;; Consumed by cp-infra.server/create-server
@@ -46,4 +56,3 @@
               ::bootstrap/type :jetty
               ;;::bootstrap/host "localhost"
               ::bootstrap/port 8080})
-

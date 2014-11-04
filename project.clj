@@ -15,7 +15,13 @@
                  [ch.qos.logback/logback-classic "1.1.2" :exclusions [org.slf4j/slf4j-api]]
                  [org.slf4j/jul-to-slf4j "1.7.7"]
                  [org.slf4j/jcl-over-slf4j "1.7.7"]
-                 [org.slf4j/log4j-over-slf4j "1.7.7"]]
+                 [org.slf4j/log4j-over-slf4j "1.7.7"]
+
+                 [com.datomic/datomic-free "0.9.5052"
+                  :exclusions [org.slf4j/jul-to-slf4j
+                               org.slf4j/slf4j-nop]]
+                 [ns-tracker "0.2.2"]
+                 [stencil "0.3.5"]]
   :min-lein-version "2.0.0"
   :resource-paths ["config", "resources"]
   :profiles {:dev {:aliases {"run-dev" ["trampoline" "run" "-m" "cp-infra.server/run-dev"]}

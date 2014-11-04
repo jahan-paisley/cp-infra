@@ -1,0 +1,18 @@
+[{:db/id #db/id [:db.part/db]
+  :db/ident :message/title
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one
+  :db/doc "The title of the message"
+  :db.install/_attribute :db.part/db}
+ {:db/id #db/id [:db.part/db]
+  :db/ident :message/description
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one
+  :db/doc "The description of a message"
+  :db.install/_attribute :db.part/db}
+ {:db/id #db/id [:db.part/db]
+  :db/ident :message/completed?
+  :db/valueType :db.type/boolean
+  :db/cardinality :db.cardinality/one
+  :db/doc "The completion status of a message"
+  :db.install/_attribute :db.part/db}]
