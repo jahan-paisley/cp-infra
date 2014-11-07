@@ -22,3 +22,8 @@ To learn more about configuring Logback, read its [documentation](http://logback
 ## Links
 * [Other examples](https://github.com/pedestal/samples)
 
+
+
+```clojure
+(server/stop runnable-service) (use '[clojure.tools.namespace.repl :only (refresh)]) (refresh) (server/start runnable-service)
+```

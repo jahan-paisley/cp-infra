@@ -12,15 +12,15 @@
 
 @(d/transact conn schema-tx)
 
-(defn message-tx [title desc]
+(defn message-tx [title body]
   (cond-> {:db/id (d/tempid :db.part/user)
            :message/title title
-           :message/completed? false}
-          desc (assoc :message/description desc) ;; Add description if not nil
+           :message/sent? false}
+          body (assoc :message/body body) ;; Add body if not nil
           true vector))                       ;; Wrap in vector
 
-(defn create-message [title desc]
-  @(d/transact conn (message-tx title desc)))
+(defn create-message [title body]
+  @(d/transact conn (message-tx title body)))
 
 (defn all-messages [db]
   (->> (d/q '[:find ?id
@@ -29,17 +29,17 @@
        (map first)              ; (12341123 12357223 134571345)
        (map #(d/entity db %)))) ; ({:db/id 12341123} ...)
 
-(defn completed-messages [db]
+(defn sent-messages [db]
   (->> (d/q '[:find ?id
               :where
               [?id :message/title]
-              [?id :message/completed? true]]
+              [?id :message/sent? true]]
             db)
        (map first)
        (map #(d/entity db %))))
 
 (defn toggle-status [id status]
-  @(d/transact conn [[:db/add id :message/completed? status]]))
+  @(d/transact conn [[:db/add id :message/sent? status]]))
 
 (defn delete-message [id]
   @(d/transact conn [[:db.fn/retractEntity id]]))

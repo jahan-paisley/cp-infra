@@ -2,26 +2,36 @@
   (:require [io.pedestal.interceptor :refer [defhandler]]
             [io.pedestal.http.route :refer [url-for]]
             [ring.util.response :refer [response redirect]]
-            [stencil.core :refer [render-file]]
+            ;[stencil.core :refer [render-file]]
             [datomic.api :as d]
             [cheshire.core :refer :all]
             [cp-infra.message.db :as db]
             [cp-infra.message.view :as v]
-            [io.pedestal.http :refer :all]
-            ))
+
+            [io.pedestal.http :refer :all])
+  (:import [com.hamrahvas.webservice MessageUpload MessageListUpload SmsBuffer]))
+
+(def credentials-config (->> "env.edn"
+                             clojure.java.io/resource
+                             slurp
+                             (clojure.edn/read-string {:readers *data-readers*})))
+
+(defn call-web-service [title body]
+  (let [service (SmsBuffer.)
+        port (.getSmsBufferSoap service)]
+    (.messageUpload port (:username credentials-config) (:password credentials-config) "number" "content" "origShortCode")))
 
 (defhandler index [req]
             (let [messages (db/all-messages (d/db db/conn))]
-              (response (v/message-index messages))
-              ;;(response (render-file "create-message" {:company "paitakht iran zamin" :messages messages}))
-              ))
+              (response (v/message-index messages))))
 
 (defhandler create [req]
             (let [title (get-in req [:form-params "title"])
-                  desc (get-in req [:form-params "description"])]
+                  body (get-in req [:form-params "body"])]
               (when title
-                (db/create-message title desc))
-              (redirect (url-for :messages))))
+                (db/create-message title body)
+                (call-web-service title body)
+                (redirect (url-for :messages)))))
 
 (defn id [request]
   (some-> request

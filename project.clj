@@ -20,8 +20,17 @@
                  [com.datomic/datomic-free "0.9.5052"
                   :exclusions [org.slf4j/jul-to-slf4j
                                org.slf4j/slf4j-nop]]
+
+                 [org.clojure/core.cache "0.6.3"]
+                 [org.clojure/core.memoize "0.5.6" :exclusions [org.clojure/core.cache]]
+
+                 [com.cemerick/friend "0.2.1"]
+
+                 [hiccup "1.0.5"]
                  [ns-tracker "0.2.2"]
-                 [stencil "0.3.5"]]
+                 ;[stencil "0.3.5"]
+                 ]
+  :java-source-paths ["src"]
   :min-lein-version "2.0.0"
   :resource-paths ["config", "resources"]
   :profiles {:dev {:aliases {"run-dev" ["trampoline" "run" "-m" "cp-infra.server/run-dev"]}
