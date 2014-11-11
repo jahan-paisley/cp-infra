@@ -34,19 +34,18 @@
            [[["/" ^:interceptors [(body-params/body-params)
                                   middlewares/keyword-params
                                   bootstrap/html-body
-                                  (middlewares/session {:store (cookie/cookie-store)})]
-              ["/messages" ^:interceptors [(body-params/body-params)
-                                           middlewares/keyword-params
-                                           bootstrap/html-body
-                                           (middlewares/session {:store (cookie/cookie-store)})
-                                           (friend-authenticate-interceptor friend-config)]
+                                  (middlewares/session {:store (cookie/cookie-store)})
+                                  (friend-authenticate-interceptor friend-config)]
+              ["/messages"
+               ^:interceptors [(friend-authorize-interceptor #{:cp-infra.authen/admin})]
                {:get    [:messages message/index]
                 :post   [:message#create message/create]
                 :delete [:messages#delete-all message/delete-all]}
                ["/:id" {:delete [:message#delete message/delete]}]
                ["/toggle" {:put [:message#toggle message/toggle]}]]
+
               ["/about" {:get about-page}]
-              ["/login" {:get  [:login login-page] :post [:login#post login-action]}]
+              ["/login" {:get [:login login-page] :post [:login#post login-action]}]
               ["/logout" {:get logout-page}]]]])
 
 (def service {:env                      :prod

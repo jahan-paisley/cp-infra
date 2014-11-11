@@ -97,3 +97,29 @@ exit
 exit
 (use '[clojure.tools.namespace.repl :only (refresh)]) (refresh) (server/start runnable-service)
 exit
+(use '[clojure.tools.namespace.repl :only (refresh)]) (refresh) (server/start runnable-service)
+(server/stop runnable-service) (use '[clojure.tools.namespace.repl :only (refresh)]) (refresh) (server/start runnable-service)
+exit
+(server/stop runnable-service) (use '[clojure.tools.namespace.repl :only (refresh)]) (refresh) (server/start runnable-service)
+(server/stop runnable-service)
+(server/stop runnable-service) (use '[clojure.tools.namespace.repl :only (refresh)]) (refresh) (server/start runnable-service)
+(use '[clojure.tools.namespace.repl :only (refresh)]) (refresh)
+(use '[clojure.tools.namespace.repl :only (refresh)])
+(use '[clojure.tools.namespace.repl :only [refresh]])
+exit
+(use '[clojure.tools.namespace.repl :only [refresh]])
+(use '[clojure.tools.namespace.repl :only (refresh)])
+(service/start runnable-service)
+exit 
+exit
+(service/start runnable-service)
+(server/start runnable-service)
+(use '[clojure.tools.namespace.repl :only [refresh]])
+(server/stop runnable-service) (use '[clojure.tools.namespace.repl :only (refresh)]) (refresh) (server/start runnable-service)
+exit
+(server/start runnable-service)
+(server/stop runnable-service)
+(server/stop runnable-service) (use '[clojure.tools.namespace.repl :only (refresh)]) (refresh) (server/start runnable-service)
+exit
+(server/start runnable-service)
+exit

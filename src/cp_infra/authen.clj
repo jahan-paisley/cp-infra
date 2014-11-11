@@ -9,6 +9,23 @@
             [hiccup.page :as h]
             [hiccup.element :as e]))
 
+(def users
+  "root/clojure login using bcrypt."
+  (let [password (creds/hash-bcrypt "clojure")]
+    {"root" {:username "root" :password password :roles #{:cp-infra.authen/admin}}}))
+
+
+(def friend-config
+  "A friend config for interactive form use."
+  {:login-uri           "/login"
+   :allow-anon? true
+   :default-landing-uri "/messages"
+   :unauthorized-handler #(-> (h/html5 [:h2 "You do not have sufficient privileges to access " (:uri %)])
+                              response
+                              (status 401))
+   :workflows           [(workflows/interactive-form)]
+   :credential-fn       (partial creds/bcrypt-credential-fn users)})
+
 (definterceptorfn friend-authenticate-interceptor
                   "Creates a friend/authenticate interceptor for a given config."
                   [auth-config]
@@ -42,37 +59,18 @@
                     ;; hook up friend response handling
                     (middlewares/response-fn-adapter friend/authenticate-response)))
 
-(def users
-  "root/clojure login using bcrypt."
-  (let [password (creds/hash-bcrypt "clojure")]
-    {"root" {:username "root" :password password :roles #{::admin}}}))
-
-(derive ::admin ::user)
-
-(def friend-config
-  "A friend config for interactive form use."
-  {:login-uri           "/login"
-   :allow-anon? false
-   :default-landing-uri "/messages"
-   :unauthorized-handler #(-> (h/html5 [:h2 "You do not have sufficient privileges to access " (:uri %)])
-                              response
-                              (status 401))
-   :workflows           [(workflows/interactive-form)]
-   :credential-fn       (partial creds/bcrypt-credential-fn users)})
-
-
-;(definterceptorfn friend-authorize-interceptor
-;                  "Creates a friend interceptor for friend/authorize."
-;                  [roles]
-;                  (interceptor
-;                    :enter
-;                    (fn [{:keys [request] :as context}]
-;                      (let [auth (:auth (:friend/handler-map request))]
-;                        ;; check user has an authorized role
-;                        (if (friend/authorized? roles auth)
-;                          ;; authorized, so continue
-;                          context
-;                          ;; unauthorized, so throw exception for authentication interceptor
-;                          (friend/throw-unauthorized auth {:cemerick.friend/required-roles
-;                                                           roles}))))))
+(definterceptorfn friend-authorize-interceptor
+                  "Creates a friend interceptor for friend/authorize."
+                  [roles]
+                  (interceptor
+                    :enter
+                    (fn [{:keys [request] :as context}]
+                      (let [auth (:auth (:friend/handler-map request))]
+                        ;; check user has an authorized role
+                        (if (friend/authorized? roles auth)
+                          ;; authorized, so continue
+                          context
+                          ;; unauthorized, so throw exception for authentication interceptor
+                          (friend/throw-unauthorized auth {:cemerick.friend/required-roles
+                                                           roles}))))))
 
