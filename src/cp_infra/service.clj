@@ -10,7 +10,7 @@
             [ring.middleware.session.cookie :as cookie]
             [cemerick.friend :as friend]
             [cemerick.friend [credentials :as creds] [workflows :as workflows]]
-            [cp-infra.friend :refer :all]
+            [cp-infra.authen :refer :all]
             [cp-infra.message :as message]
             [cp-infra.login.view :as login-view]))
 
