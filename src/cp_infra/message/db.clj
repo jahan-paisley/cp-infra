@@ -16,8 +16,8 @@
   (cond-> {:db/id (d/tempid :db.part/user)
            :message/title title
            :message/sent? false}
-          body (assoc :message/body body) ;; Add body if not nil
-          true vector))                       ;; Wrap in vector
+          body (assoc :message/body body)
+          true vector))
 
 (defn create-message [title body]
   @(d/transact conn (message-tx title body)))
@@ -25,9 +25,9 @@
 (defn all-messages [db]
   (->> (d/q '[:find ?id
               :where [?id :message/title]]
-            db)                 ; #{[12341123] [12357223] [134571345]}
-       (map first)              ; (12341123 12357223 134571345)
-       (map #(d/entity db %)))) ; ({:db/id 12341123} ...)
+            db)
+       (map first)
+       (map #(d/entity db %))))
 
 (defn sent-messages [db]
   (->> (d/q '[:find ?id

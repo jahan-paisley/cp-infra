@@ -88,3 +88,12 @@ exit
 exit
 (server/stop runnable-service) (use '[clojure.tools.namespace.repl :only (refresh)]) (refresh) (server/start runnable-service)
 exit
+(server/stop runnable-service) (use '[clojure.tools.namespace.repl :only (refresh)]) (refresh) (server/start runnable-service)
+exit
+(use '[clojure.tools.namespace.repl :only (refresh)]) (refresh) (server/start runnable-service)
+(server/stop runnable-service) (use '[clojure.tools.namespace.repl :only (refresh)]) (refresh) (server/start runnable-service)
+exit
+(server/stop runnable-service) (use '[clojure.tools.namespace.repl :only (refresh)]) (refresh) (server/start runnable-service)
+exit
+(use '[clojure.tools.namespace.repl :only (refresh)]) (refresh) (server/start runnable-service)
+exit

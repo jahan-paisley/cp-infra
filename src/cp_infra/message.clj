@@ -2,7 +2,6 @@
   (:require [io.pedestal.interceptor :refer [defhandler]]
             [io.pedestal.http.route :refer [url-for]]
             [ring.util.response :refer [response redirect]]
-            ;[stencil.core :refer [render-file]]
             [datomic.api :as d]
             [cheshire.core :refer :all]
             [cp-infra.message.db :as db]

@@ -20,7 +20,7 @@
    [:div.form-group
     [:label.control-label.col-sm-2 {:for "password-input"} "password"]
     [:div.col-sm-10
-     [:input.form-control {:type     "text"
+     [:input.form-control {:type     "password"
                            :name     "password"
                            :id       "password-input"
                            :required true}]]]
@@ -45,4 +45,4 @@
            [:script {:src "/bootstrap/js/bootstrap.min.js"}]]]))
 
 (defn logout []
-  [:a {:href "/logout"}])
+  [:a {:href "/logout"} "Logout"])
